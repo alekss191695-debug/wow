@@ -9,29 +9,29 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel>
             <DockPanel>
-                <Label Content="Find"/>
+                <Label Content="Найти"/>
                 <ComboBox Name="targetSelectCb" SelectionChanged="targetSelectCb_SelectionChanged">
-                    <ComboBoxItem Content="Quest Sort" />
-                    <ComboBoxItem Content="Map" />
-                    <ComboBoxItem Content="Faction" />
-                    <ComboBoxItem Content="Title" />
-                    <ComboBoxItem Content="Item" />
-                    <ComboBoxItem Content="Quest" />
-                    <ComboBoxItem Content="Creature" />
-                    <ComboBoxItem Content="Game Object" />
-                    <ComboBoxItem Content="Spell" />
-                    <ComboBoxItem Content="Emote" />
+                    <ComboBoxItem Content="Тип задания" />
+                    <ComboBoxItem Content="Карта" />
+                    <ComboBoxItem Content="Фракция" />
+                    <ComboBoxItem Content="Звание" />
+                    <ComboBoxItem Content="Предмет" />
+                    <ComboBoxItem Content="Задание" />
+                    <ComboBoxItem Content="Существо" />
+                    <ComboBoxItem Content="Игровой объект" />
+                    <ComboBoxItem Content="Заклинание" />
+                    <ComboBoxItem Content="Эмоция" />
                 </ComboBox>
             </DockPanel>
             <DockPanel Margin="0,5,0,5">
-                <Button Name="searchBtn" Content="Search" DockPanel.Dock="Right" Click="searchBtn_Click" IsDefault="True" Width="75"/>
+                <Button Name="searchBtn" Content="Поиск" DockPanel.Dock="Right" Click="searchBtn_Click" IsDefault="True" Width="75"/>
                 <TextBox Name="searchTxt" />
             </DockPanel>
             <DataGrid Name="dataGrid" IsReadOnly="True" MouseDoubleClick="dataGrid_MouseDoubleClick">
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Copy" Click="Context_Copy" />
-                        <MenuItem Header="Delete" Click="Context_Delete" />
+                        <MenuItem Header="Копировать" Click="Context_Copy" />
+                        <MenuItem Header="Удалить" Click="Context_Delete" />
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
