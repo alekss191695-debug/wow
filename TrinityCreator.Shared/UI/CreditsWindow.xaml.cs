@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -23,7 +23,7 @@ namespace TrinityCreator.Shared.UI
         public CreditsWindow()
         {
             InitializeComponent();
-            creditsTxt.Text = "Version\t\t\tv" + Assembly.GetExecutingAssembly().GetName().Version + 
+            creditsTxt.Text = "Версия\t\t\tv" + Assembly.GetExecutingAssembly().GetName().Version + 
                 Environment.NewLine + Properties.Resources.Credits;
         }
     }
