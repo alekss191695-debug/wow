@@ -5,100 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrinityCreator.Shared"
         mc:Ignorable="d"
-        Title="Profile Creator" Height="600" Width="1100">
+        Title="Создание профиля" Height="600" Width="1100">
     <ScrollViewer>
         <WrapPanel>
-            <GroupBox Header="Profile Info" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <GroupBox Header="Информация о профиле" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <StackPanel x:Name="profileInfoSp" Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal"  Margin="5" >
-                        <Label Width="150" Content="Profile Name" />
-                        <TextBox Text="{Binding Name}" Width="325" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"  Margin="5" >
-                        <Label Width="150" Content="Emulator Name" />
-                        <TextBox Text="{Binding EmulatorName}" Width="325" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"  Margin="5">
-                        <Label Width="150" Content="Game Version" ToolTip="eg. 3.3.5a or 1.12.2"/>
-                        <TextBox Text="{Binding GameVersion}" Width="325" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"  Margin="5">
-                        <Label Width="150" Content="Database Version" ToolTip="Database version if applicable or the current date."/>
-                        <TextBox Text="{Binding DatabaseVersion}" Width="325" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"  Margin="5">
-                        <Label Width="150" Content="Profile Revision" ToolTip="Increase the revision number to prompt users with an update of this profile."/>
-                        <TextBox Text="{Binding Revision}" Width="325" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"  Margin="5">
-                        <Label Width="150" Content="Author" ToolTip="Name of the profile author."/>
-                        <TextBox Text="{Binding Author}" Width="325" />
-                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5"><Label Width="150" Content="Название профиля"/><TextBox Text="{Binding Name}" Width="325"/></StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5"><Label Width="150" Content="Название эмулятора"/><TextBox Text="{Binding EmulatorName}" Width="325"/></StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5"><Label Width="150" Content="Версия игры" ToolTip="Например: 3.3.5a или 1.12.2"/><TextBox Text="{Binding GameVersion}" Width="325"/></StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5"><Label Width="150" Content="Версия базы данных" ToolTip="Версия базы данных, если она указана, или текущая дата."/><TextBox Text="{Binding DatabaseVersion}" Width="325"/></StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5"><Label Width="150" Content="Редакция профиля" ToolTip="Увеличьте номер редакции, чтобы предложить пользователям обновить профиль."/><TextBox Text="{Binding Revision}" Width="325"/></StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5"><Label Width="150" Content="Автор" ToolTip="Имя автора профиля."/><TextBox Text="{Binding Author}" Width="325"/></StackPanel>
                 </StackPanel>
             </GroupBox>
-
-            <GroupBox Header="Info" Width="500">
+            <GroupBox Header="Сведения" Width="500">
                 <StackPanel Orientation="Vertical">
-                    <StackPanel Margin=" 5">
-                        <TextBlock>
-                            WARNING: This tool is for advanced users.<LineBreak/>
-                            <Hyperlink NavigateUri="https://github.com/NotCoffee418/TrinityCreator/wiki/Adding-Emulator-Support" RequestNavigate="Hyperlink_RequestNavigate">Read the documentation</Hyperlink> or <Hyperlink NavigateUri="https://youtu.be/uSX2G5NDf0c" RequestNavigate="Hyperlink_RequestNavigate">watch the video tutorial</Hyperlink> before using it.
+                    <StackPanel Margin="5">
+                        <TextBlock TextWrapping="Wrap">
+                            ВНИМАНИЕ: этот инструмент предназначен для опытных пользователей.<LineBreak/>
+                            <Hyperlink NavigateUri="https://github.com/NotCoffee418/TrinityCreator/wiki/Adding-Emulator-Support" RequestNavigate="Hyperlink_RequestNavigate">Прочитать документацию</Hyperlink>
                             <LineBreak/><LineBreak/>
-                            Key notes:<LineBreak/>                            
-                            Feel free to load an existing profile and modify it.<LineBreak/>
-                            Most emulators have similar structures so most of the work will be done for you.<LineBreak/>
-                            <LineBreak/>
-                            You don't need to fill out all fields.<LineBreak/>
-                            Some contradict eachother to support different emulators.<LineBreak/>
-                            <LineBreak/>
-                            Hover over textboxes for more information. Some provide extra info on how to handle it.
+                            Важные замечания:<LineBreak/>
+                            Можно загрузить существующий профиль и изменить его.<LineBreak/>
+                            Структуры большинства эмуляторов похожи, поэтому большая часть работы будет выполнена за вас.<LineBreak/><LineBreak/>
+                            Необязательно заполнять все поля.<LineBreak/>
+                            Некоторые параметры противоречат друг другу — это нужно для поддержки разных эмуляторов.<LineBreak/><LineBreak/>
+                            Наведите указатель на текстовые поля, чтобы увидеть подсказки. В некоторых подсказках описано, как использовать параметр.
                         </TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="loadBtn" Content="Load profile from file" Margin="5" Height="25" Width="150" Click="loadBtn_Click"/>
-                        <Button Name="copyBtn" Content="Copy Json to clipboard" Margin="5" Height="25" Width="150" Click="copyBtn_Click"/>
-                        <Button Name="saveBtn" Content="Save To File" Margin="5" Height="25" Width="150" Click="saveBtn_Click"/>
+                        <Button Name="loadBtn" Content="Загрузить профиль из файла" Margin="5" Height="25" Width="165" Click="loadBtn_Click"/>
+                        <Button Name="copyBtn" Content="Копировать JSON" Margin="5" Height="25" Width="150" Click="copyBtn_Click"/>
+                        <Button Name="saveBtn" Content="Сохранить в файл" Margin="5" Height="25" Width="150" Click="saveBtn_Click"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="Quest" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel x:Name="questSp" Orientation="Vertical">
-                    <!-- ProfileCreatorEntries go here -->
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Creature" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel x:Name="creatureSp" Orientation="Vertical">
-                    <!-- ProfileCreatorEntries go here -->
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Item" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel x:Name="itemSp" Orientation="Vertical">
-                    <!-- ProfileCreatorEntries go here -->
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Loot" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel x:Name="lootSp" Orientation="Vertical">
-                    <!-- ProfileCreatorEntries go here -->
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Vendor" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel x:Name="vendorSp" Orientation="Vertical">
-                    <!-- ProfileCreatorEntries go here -->
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Definitions" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel x:Name="definitionsSp" Orientation="Vertical">
-                    <!-- ProfileCreatorEntries go here -->
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Custom Fields" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel x:Name="customFieldsSp" Orientation="Vertical">
-                        <!-- ProfileCreatorEntries go here -->
-
-                    </StackPanel>
-                    <Button x:Name="addCustomFieldBtn" Content="Add Custom Field" Margin="5" Click="addCustomFieldBtn_Click" />
-                </StackPanel>
+            <GroupBox Header="Задание" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"><StackPanel x:Name="questSp" Orientation="Vertical"/></GroupBox>
+            <GroupBox Header="Существо" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"><StackPanel x:Name="creatureSp" Orientation="Vertical"/></GroupBox>
+            <GroupBox Header="Предмет" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"><StackPanel x:Name="itemSp" Orientation="Vertical"/></GroupBox>
+            <GroupBox Header="Добыча" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"><StackPanel x:Name="lootSp" Orientation="Vertical"/></GroupBox>
+            <GroupBox Header="Торговец" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"><StackPanel x:Name="vendorSp" Orientation="Vertical"/></GroupBox>
+            <GroupBox Header="Определения" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"><StackPanel x:Name="definitionsSp" Orientation="Vertical"/></GroupBox>
+            <GroupBox Header="Пользовательские поля" Width="500" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical"><StackPanel x:Name="customFieldsSp" Orientation="Vertical"/><Button x:Name="addCustomFieldBtn" Content="Добавить пользовательское поле" Margin="5" Click="addCustomFieldBtn_Click"/></StackPanel>
             </GroupBox>
         </WrapPanel>
     </ScrollViewer>
