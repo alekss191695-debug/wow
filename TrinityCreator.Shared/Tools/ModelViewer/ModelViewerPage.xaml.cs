@@ -1,23 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TrinityCreator.Shared.Database;
 
 namespace TrinityCreator.Shared.Tools.ModelViewer
 {
     /// <summary>
-    /// Interaction logic for ModelViewerPage.xaml
+    /// Логика взаимодействия для ModelViewerPage.xaml
     /// </summary>
     public partial class ModelViewerPage : Page
     {
@@ -34,7 +23,6 @@ namespace TrinityCreator.Shared.Tools.ModelViewer
 
         public void LoadModel(int displayId = 0, string type = "", string idType = "")
         {
-            // Sync with UI
             if (displayId == 0)
             {
                 try
@@ -43,14 +31,20 @@ namespace TrinityCreator.Shared.Tools.ModelViewer
                 }
                 catch
                 {
-                    MessageBox.Show("Invalid Display Id", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Некорректный ID отображения.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }
-            else displayIdTxt.Text = displayId.ToString();
+            else
+            {
+                displayIdTxt.Text = displayId.ToString();
+            }
 
-            if (type == "")
-                type = ((ComboBoxItem)displayTypeCb.SelectedValue).Content.ToString();
+            // Внутренняя логика и вызывающий код используют прежние английские идентификаторы.
+            if (string.IsNullOrEmpty(type))
+            {
+                type = displayTypeCb.SelectedIndex == 1 ? "Creature" : "Item";
+            }
             else
             {
                 switch (type)
@@ -64,8 +58,10 @@ namespace TrinityCreator.Shared.Tools.ModelViewer
                 }
             }
 
-            if (idType == "")
-                idType = ((ComboBoxItem)inputIdCb.SelectedValue).Content.ToString();
+            if (string.IsNullOrEmpty(idType))
+            {
+                idType = inputIdCb.SelectedIndex == 1 ? "Entry ID" : "Display ID";
+            }
             else
             {
                 switch (idType)
@@ -79,16 +75,14 @@ namespace TrinityCreator.Shared.Tools.ModelViewer
                 }
             }
 
-
-            // load model
             switch (type)
             {
                 case "Item":
                     if (idType == "Entry ID")
                         displayId = LookupQuery.GetItemDisplayFromEntry(displayId);
-                    mvBrowser.LoadUrl("http://www.wowhead.com/#modelviewer:4:13;" + displayId, blankFirst:true);
+                    mvBrowser.LoadUrl("http://www.wowhead.com/#modelviewer:4:13;" + displayId, blankFirst: true);
                     break;
-                case "Creature": // input should be entry instead of display
+                case "Creature":
                     if (Connection.IsConfigured())
                     {
                         if (idType == "Display ID")
