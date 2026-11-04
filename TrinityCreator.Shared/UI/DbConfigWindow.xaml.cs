@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Media;
 using TrinityCreator.Shared.Database;
 using TrinityCreator.Shared.Properties;
@@ -53,13 +53,13 @@ namespace TrinityCreator.Shared.UI
         {
             string connString = "server=" + HostTxt.Text + ";user=" + UserTxt.Text + ";password=" + PasswordTxt.Text + ";database=" + DatabaseTxt.Text + ";port=" + PortTxt.Text + ";";
 
-            StatusLbl.Text = "Testing connection...";
+            StatusLbl.Text = "Проверка подключения...";
             StatusLbl.Foreground = Brushes.Black;
 
             var testException = Connection.Test(connString);
             if (testException == null) // Success
             {
-                StatusLbl.Text = "Connection test successful. Saved to settings.";
+                StatusLbl.Text = "Подключение успешно проверено. Сохранено в настройках.";
                 StatusLbl.Foreground = Brushes.Green;
 
                 Settings.Default.worldDb = connString;
@@ -67,7 +67,7 @@ namespace TrinityCreator.Shared.UI
             }
             else // failed
             {
-                StatusLbl.Text = "Connection test failed: " + testException.Message;
+                StatusLbl.Text = "Проверка подключения не удалась: " + testException.Message;
                 StatusLbl.Foreground = Brushes.Red;
             }
         }
@@ -79,8 +79,8 @@ namespace TrinityCreator.Shared.UI
 
         private void restoreDefaultBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to clear your database settings? This will not affect your database.", 
-                "Reset database settings?", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Вы уверены, что хотите очистить параметры подключения к базе данных? Это не затронет саму базу данных.", 
+                "Сбросить настройки базы данных?", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 Settings.Default.worldDb = "";
                 Settings.Default.Save();
