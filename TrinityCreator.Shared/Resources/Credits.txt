@@ -1,0 +1,7 @@
+Creator			NotCoffee418
+
+External libraries by:
+DBC Viewer		tomrus88
+DBC & maps extractor	cMangos
+Model Viewer		Wowhead
+Web browser		CefSharp
