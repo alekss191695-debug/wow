@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Threading;
 using System.Windows;
@@ -21,8 +21,8 @@ namespace TrinityCreator
         public App()
         {
             // Related to not breaking float input on different locales
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
             FrameworkElement.LanguageProperty.OverrideMetadata(typeof (FrameworkElement), new FrameworkPropertyMetadata(
                 XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
 
