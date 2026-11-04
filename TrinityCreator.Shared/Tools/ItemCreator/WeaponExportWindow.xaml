@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrinityCreator.Shared.Tools.ItemCreator"
         mc:Ignorable="d"
-        Title="Export Weapon" Height="500" Width="800" Loaded="Window_Loaded">
+        Title="Экспорт оружия" Height="500" Width="800" Loaded="Window_Loaded">
     <Grid>
         <RichTextBox x:Name="weaponNoticeRtb" Margin="0,0,0,50" VerticalScrollBarVisibility="Visible"/>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,17">
-            <CheckBox Name="neverShowAgainCb" Content="Never show this window again" />
+            <CheckBox Name="neverShowAgainCb" Content="Больше не показывать это окно"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Content="Copy DBC CSV to clipboard (NIY)" IsEnabled="False" Margin="5" Width="200"/>
-            <Button x:Name="justExportBtn" Content="Just Export" Margin="5" Width="100" Click="justExportBtn_Click"/>
-            <Button x:Name="deleteExportBtn" Content="Delete and Export" Margin="5" Width="120" Click="deleteExportBtn_Click"/>
+            <Button Content="Копировать CSV DBC в буфер обмена (ещё не реализовано)" IsEnabled="False" Margin="5" Width="260"/>
+            <Button x:Name="justExportBtn" Content="Только экспорт" Margin="5" Width="110" Click="justExportBtn_Click"/>
+            <Button x:Name="deleteExportBtn" Content="Удалить и экспортировать" Margin="5" Width="160" Click="deleteExportBtn_Click"/>
         </StackPanel>
-
     </Grid>
 </Window>

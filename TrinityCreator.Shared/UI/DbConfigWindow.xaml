@@ -5,39 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrinityCreator.Shared.Database"
         mc:Ignorable="d"
-        Title="Configure Database" Height="300" Width="500" ResizeMode="NoResize">
+        Title="Настройка базы данных" Height="300" Width="500" ResizeMode="NoResize">
     <StackPanel Margin="10">
+        <DockPanel Margin="0,0,0,5"><Label Content="Хост MySQL" Width="100" HorizontalAlignment="Left"/><TextBox Name="HostTxt" Text="127.0.0.1"/></DockPanel>
+        <DockPanel Margin="0,0,0,5"><Label Content="Порт MySQL" Width="100" HorizontalAlignment="Left"/><TextBox Name="PortTxt" Text="3306"/></DockPanel>
+        <DockPanel Margin="0,0,0,5"><Label Content="Пользователь" Width="100" HorizontalAlignment="Left"/><TextBox Name="UserTxt" Text="trinity"/></DockPanel>
+        <DockPanel Margin="0,0,0,5"><Label Content="Пароль" Width="100" HorizontalAlignment="Left"/><TextBox Name="PasswordTxt" Text="trinity"/></DockPanel>
+        <DockPanel Margin="0,0,0,5"><Label Content="База данных мира" Width="100" HorizontalAlignment="Left"/><TextBox Name="DatabaseTxt" Text="trinity_world"/></DockPanel>
+        <Label Width="500"><TextBlock Name="StatusLbl" TextWrapping="Wrap"/></Label>
         <DockPanel Margin="0,0,0,5">
-            <Label Content="MySQL Host" Width="100" HorizontalAlignment="Left" />
-            <TextBox Name="HostTxt" Text="127.0.0.1" />
+            <Button Name="SaveBtn" Content="Сохранить параметры подключения" Width="200" HorizontalAlignment="Left" Click="saveBtn_Click" IsDefault="True"/>
+            <Button Name="CloseBtn" Content="Закрыть окно" Width="100" HorizontalAlignment="Right" Click="closeBtn_Click" IsCancel="True"/>
         </DockPanel>
-        <DockPanel Margin="0,0,0,5">
-            <Label Content="MySQL Port" Width="100" HorizontalAlignment="Left" />
-            <TextBox Name="PortTxt" Text="3306" />
-        </DockPanel>
-        <DockPanel Margin="0,0,0,5">
-            <Label Content="User" Width="100" HorizontalAlignment="Left" />
-            <TextBox Name="UserTxt" Text="trinity" />
-        </DockPanel>
-        <DockPanel Margin="0,0,0,5">
-            <Label Content="Password" Width="100" HorizontalAlignment="Left" />
-            <TextBox Name="PasswordTxt" Text="trinity" />
-        </DockPanel>
-        <DockPanel Margin="0,0,0,5">
-            <Label Content="World Database" Width="100" HorizontalAlignment="Left" />
-            <TextBox Name="DatabaseTxt" Text="trinity_world" />
-        </DockPanel>
-        <Label Width="500">
-            <TextBlock Name="StatusLbl" TextWrapping="Wrap" />
-        </Label>
-        <DockPanel Margin="0,0,0,5">
-            <Button Name="SaveBtn" Content="Save connection info" Width="150" HorizontalAlignment="Left"
-                    Click="saveBtn_Click" IsDefault="True" />
-            <Button Name="CloseBtn" Content="Close window" Width="90" HorizontalAlignment="Right"
-                    Click="closeBtn_Click" IsCancel="True" />
-        </DockPanel>
-        <DockPanel>
-            <Button x:Name="restoreDefaultBtn" Content="Reset to default" Width="100" HorizontalAlignment="Left" Click="restoreDefaultBtn_Click"/>
-        </DockPanel>
+        <DockPanel><Button x:Name="restoreDefaultBtn" Content="Сбросить настройки" Width="130" HorizontalAlignment="Left" Click="restoreDefaultBtn_Click"/></DockPanel>
     </StackPanel>
 </Window>
