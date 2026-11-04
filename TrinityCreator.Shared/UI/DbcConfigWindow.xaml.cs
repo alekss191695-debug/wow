@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,10 +30,10 @@ namespace TrinityCreator.Shared.UI
 
         private void ShowInfo()
         {
-            infoTxt.Text = string.Format("This setting is optional and only used by the Lookup Tool in some instances.{0}" +
-                "If you already have a DBC directory, you should point this setting there.{0}" +
-                "Alternatively you can point to your WoW directory to extract the DBC files automatically.{0}{0}" +
-                "This must point to 3.3.5a DBC files to work correctly. Leaving this empty is fine as well."
+            infoTxt.Text = string.Format("Эта настройка необязательна и используется только инструментом поиска в некоторых случаях.{0}" +
+                "Если у вас уже есть папка DBC, укажите её здесь.{0}" +
+                "Также можно указать папку WoW для автоматического извлечения файлов DBC.{0}{0}" +
+                "Для корректной работы должны быть файлы DBC версии 3.3.5a. Оставить пустым тоже можно."
                 , Environment.NewLine);
         }
 
@@ -61,7 +61,7 @@ namespace TrinityCreator.Shared.UI
             // Verify & notify or undo
             if (DbcHandler.VerifyDbcDir(openConfigWindowOnError: false))
             {
-                MessageBox.Show("DBC Directory is configured correctly.", "Settings saved", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Путь к DBC настроен корректно.", "Настройки сохранены", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }
             else
